@@ -24,3 +24,8 @@ steps:
     installDir: 'C:\Program Files\Parasoft\dotTEST\2022.2'
     testConfig: 'builtin://PCI DSS 4.0'
     publish: true
+    settings: |
+      dtp.url=https://localhost:443
+      dtp.user=admin
+      dtp.password=admin
+      dtp.project=Quartz .NET
