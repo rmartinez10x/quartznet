@@ -10,13 +10,6 @@ pool:
   name: Default
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
 
 - task: RunDotTEST@1
   inputs:
@@ -29,3 +22,17 @@ steps:
       dtp.user=admin
       dtp.password=admin
       dtp.project=Quartz .NET
+
+# Uploads analysis results in the SARIF format, so that they can be accessed in the 'Scans' tab.
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'report/report.sarif'
+    ArtifactName: 'CodeAnalysisLogs'
+    publishLocation: 'Container'
+
+# Uploads all report files (.xml, .html, .sarif) as build artifacts.
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'report'
+    ArtifactName: 'DottestReports'
+    publishLocation: 'Container'
