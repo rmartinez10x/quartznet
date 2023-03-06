@@ -18,7 +18,9 @@ steps:
     testConfig: 'builtin://PCI DSS 4.0'
     publish: true
     include: "**Cron**"
-    settings: |
+    nobuild: true
+    showsettings: true
+    property: |
       dtp.url=http://localhost:80
       dtp.user=admin
       dtp.password=admin
@@ -37,3 +39,6 @@ steps:
     PathtoPublish: 'report'
     ArtifactName: 'DottestReports'
     publishLocation: 'Container'
+
+
+    
