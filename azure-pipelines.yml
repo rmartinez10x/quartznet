@@ -17,3 +17,10 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
+- task: RunDotTEST@1
+  inputs:
+    workingDir: '$(System.DefaultWorkingDirectory)'
+    installDir: 'C:\Program Files\Parasoft\dotTEST\2022.2'
+    testConfig: 'builtin://PCI DSS 4.0'
+    publish: true
