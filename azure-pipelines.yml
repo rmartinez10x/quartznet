@@ -24,6 +24,8 @@ steps:
       dtp.user=admin
       dtp.password=admin
       dtp.project=Quartz .NET
+      goal.ref.report.file="C:\Vault\Testing_Files\Reports\DotTest\report_sate.xml"
+      goal.ref.report.findings.exclude=true
 
 # Uploads analysis results in the SARIF format, so that they can be accessed in the 'Scans' tab.
 - task: PublishBuildArtifacts@1
@@ -38,6 +40,7 @@ steps:
     PathtoPublish: 'report'
     ArtifactName: 'DottestReports'
     publishLocation: 'Container'
+    
 
 
     
